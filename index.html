@@ -6,7 +6,7 @@
   <title>Clea's Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root { --seafoam: #3CC9A4; --lagoon: #0A5A48; --mint-mist: #E2F6EF; --apricot: #F7B8A0; --rosewood: #82352A; --blush-mist: #FEF0EB; --ink: #0F2229; --slate: #3F4E54; --line: #E4E0D8; --sand: #F7F4EF; --white: #FFFFFF; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -16,7 +16,10 @@
     header p { font-size: 1.1rem; color: var(--slate); max-width: 600px; margin: 0 auto; }
     nav { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
     nav a { color: var(--lagoon); text-decoration: none; font-weight: 600; font-size: 1rem; transition: color 0.2s; }
-    nav a:hover { color: var(--seafoam); }
+    nav a:hover { text-decoration: underline; }
+    strong { font-weight: 600; }
+    a { color: var(--lagoon); }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--lagoon); outline-offset: 4px; }
     main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
     section { margin-bottom: 3rem; }
     h2 { font-size: 1.6rem; font-weight: 600; color: var(--lagoon); margin-bottom: 1.2rem; border-bottom: 2px solid var(--blush-mist); padding-bottom: 0.5rem; }
@@ -25,21 +28,20 @@
     .about-block { background: var(--blush-mist); padding: 1.8rem; border-left: 4px solid var(--apricot); font-size: 1.05rem; border-radius: 4px; }
     .about-block strong { color: var(--rosewood); }
     .case-grid { display: grid; gap: 1.2rem; }
-    .case-card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s, border-color 0.2s; cursor: pointer; }
+    .case-card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s, border-color 0.2s; }
+    .case-card summary { cursor: pointer; }
+    .case-card summary h3 { display: inline; }
     .case-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-color: var(--seafoam); }
     .case-card .case-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .case-card h3 { font-size: 1.1rem; }
     .case-card .case-category { font-size: 0.85rem; background: var(--sand); color: var(--slate); padding: 0.2rem 0.6rem; border-radius: 12px; }
     .case-card .case-result { font-weight: 600; color: var(--lagoon); margin-top: 0.4rem; font-size: 0.95rem; }
-    .case-detail { margin-top: 1.5rem; padding: 1.5rem; background: var(--mint-mist); border-radius: 8px; border-left: 4px solid var(--seafoam); display: none; }
-    .case-detail.open { display: block; }
+    .case-detail { margin-top: 1.5rem; padding: 1.5rem; background: var(--mint-mist); border-radius: 8px; border-left: 4px solid var(--seafoam); }
     .case-detail p { margin-bottom: 0.8rem; }
-    .toggle-icon { font-size: 1.2rem; color: var(--slate); transition: transform 0.2s; }
-    .case-card:hover .toggle-icon { transform: rotate(90deg); }
     .contact-list { display: flex; flex-direction: column; gap: 1rem; }
     .contact-item { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; background: var(--sand); border-radius: 6px; }
     .contact-item a { color: var(--lagoon); text-decoration: none; font-weight: 600; }
-    .contact-item a:hover { color: var(--seafoam); text-decoration: underline; }
+    .contact-item a:hover { text-decoration: underline; }
     footer { text-align: center; padding: 2rem; color: var(--slate); font-size: 0.9rem; border-top: 1px solid var(--line); margin-top: 2rem; }
     @media (max-width: 600px) {
       header h1 { font-size: 1.7rem; }
@@ -64,19 +66,20 @@
       <h2>About</h2>
       <div class="about-block">
         <p><strong>My niche:</strong> An instructional designer who turns ID standards into AI workflows that small education teams actually run, with humans kept on the decisions that matter. Built across higher ed, corporate L&amp;D, and SaaS customer education.</p>
-        <p>I write the instructional standard, encode it, test it, and cut it back when it overreaches. Most AI-for-L&amp;D voices are either technologists without ID depth or IDs who prompt chat windows. I bridge both.</p>
+        <p>I write the instructional standard, encode it, test it, and cut it back when it overreaches.</p>
         <p>Currently seeking customer education, AI enablement, or senior LXD roles. Also available for short-term AI workflow audits and team training.</p>
       </div>
     </section>
     <section id="case-studies">
-      <h2>Case Studies</h2>
-      <p>Click any card to see the problem, approach, and result.</p>
+      <h2>Selected work</h2>
+      <p><a href="https://clea-mahoney.github.io/clea-skills/walkthrough/">Try my interactive skills walkthrough</a>: mark up a sample lesson and see how two of my AI skills changed.</p>
+      <p>Open a case study to see the problem, approach, and result.</p>
       <div class="case-grid">
-        <div class="case-card">
-          <div class="case-header">
-            <h3>Action mapping that kills courses early</h3>
+        <details class="case-card">
+          <summary>
+            <h3>Action mapping at intake</h3>
             <span class="case-category">AI / Performance</span>
-          </div>
+          </summary>
           <p class="case-result">Course requests dropped to last resort; doc fixes and product feedback got real owners.</p>
           <div class="case-detail">
             <p><strong>Problem.</strong> Course requests arrived already solved. An early AI design skill made it worse by assuming training was always the right solution.</p>
@@ -84,13 +87,12 @@
             <p><strong>What didn't work first.</strong> The skill checked goals were observable but never checked measurement. Only one audience allowed. No path to "this shouldn't be a course."</p>
             <p><strong>Where a human decides.</strong> The team confirms the action map together; the skill can send a map back with a stated reason instead of quietly re-asking.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
+        </details>
+        <details class="case-card">
+          <summary>
             <h3>Fixing AI writing at the source</h3>
             <span class="case-category">AI / Quality</span>
-          </div>
+          </summary>
           <p class="case-result">Eval output went from 15 PASS/FAIL lines to a short problem list.</p>
           <div class="case-detail">
             <p><strong>Problem.</strong> Lesson drafts sounded machine-written even though a grader caught them.</p>
@@ -98,58 +100,53 @@
             <p><strong>What didn't work first.</strong> Grading harder with a 15-check checklist did nothing. First test was circular: examples came from the draft being graded.</p>
             <p><strong>Where a human decides.</strong> Only "Fix" items block publishing. SME-approved text is skipped.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
+        </details>
+        <details class="case-card">
+          <summary>
             <h3>Decision rights in an AI pipeline</h3>
             <span class="case-category">Governance</span>
-          </div>
+          </summary>
           <p class="case-result">SME opinions flowed as evidence; curriculum calls stayed with Education.</p>
           <div class="case-detail">
             <p><strong>Problem.</strong> Meeting notes flattened SME opinions as settled scope.</p>
             <p><strong>What I built.</strong> A "Who decides what" rule in every design/drafting skill: SME input is evidence or an open question, Education decides what gets made.</p>
-            <p><strong>Shows.</strong> Governance and human-in-the-loop design — the part of AI adoption most teams skip.</p>
+            <p><strong>Shows.</strong> Clear decision rights in an AI-assisted workflow.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
-            <h3>Running 15 AI skills like a product</h3>
+        </details>
+        <details class="case-card">
+          <summary>
+            <h3>Running an AI toolkit like a product</h3>
             <span class="case-category">Systems</span>
-          </div>
+          </summary>
           <p class="case-result">Teammates always on current versions without touching files; one teammate contributed two skills.</p>
           <div class="case-detail">
-            <p><strong>Problem.</strong> 15 skills, shared references that broke when zipped, silent backup failures, same course data copied into three places.</p>
+            <p><strong>Problem.</strong> About 15 skills, shared references that broke when zipped, silent backup failures, same course data copied into three places.</p>
             <p><strong>What I built.</strong> Shared references with a sync script, one-command publishing with version stamps, auto-commit on every edit (522 commits in 12 weeks), field-ownership model, automated deck checks.</p>
             <p><strong>Shows.</strong> I can run an AI system after launch: versioning, retirement, rollback.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
+        </details>
+        <details class="case-card">
+          <summary>
             <h3>Onboarding: evidence over conclusions</h3>
             <span class="case-category">Analytics</span>
-          </div>
+          </summary>
           <p class="case-result">Correct null result: partner-led ~ company-led (LMS-active 58.3% vs 61.0%, certified 10.7% vs 14.3%).</p>
           <div class="case-detail">
             <p><strong>Problem.</strong> Leadership wanted to know whether partner-led onboarding produced more LMS activity and certification than company-led.</p>
             <p><strong>What I built.</strong> Analysis across 180 companies, rebuilt twice. First version joined by company name (missed 9 companies). Fixed with ID-based join and timing-controlled cohort.</p>
             <p><strong>Result.</strong> Corrected a conclusion that would have steered program investment.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
+        </details>
+        <details class="case-card">
+          <summary>
             <h3>Community of practice for support trainers</h3>
             <span class="case-category">Facilitation</span>
-          </div>
-          <p class="case-result">Video announcements + weekly challenges drove consistent SME lesson-builder engagement.</p>
+          </summary>
+          <p class="case-result">Weekly challenges and video announcements for a support trainer book club.</p>
           <div class="case-detail">
             <p>Design for How People Learn book club with weekly challenges and video announcements. Challenge doc walked through a lesson style guide and sample lesson for SME lesson-builders.</p>
           </div>
-          <div class="toggle-icon">▶</div>
-        </div>
+        </details>
       </div>
     </section>
     <section id="consulting">
@@ -172,14 +169,12 @@
         <div class="case-card">
           <div class="case-header">
             <h3>Course-request triage setup</h3>
-            <span class="case-category">Ongoing</span>
           </div>
           <p>An intake process that routes requests to doc fixes, product feedback, or a course instead of defaulting to build.</p>
         </div>
         <div class="case-card">
           <div class="case-header">
             <h3>Workshop: working well with the AI you're given</h3>
-            <span class="case-category">1-2 days</span>
           </div>
           <p>How to make AI produce work you'd be proud to put your name on.</p>
         </div>
@@ -188,23 +183,10 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="contact-list">
-        <div class="contact-item">clea@clea-mahoney.com</div>
-        <div class="contact-item"><a href="https://www.linkedin.com/in/cleamahoney" target="_blank">LinkedIn</a></div>
-        <div class="contact-item"><a href="https://github.com/clea-mahoney" target="_blank">GitHub</a></div>
+        <div class="contact-item"><a href="https://github.com/clea-mahoney">Find me on GitHub</a></div>
       </div>
     </section>
   </main>
   <footer>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
-  <script>
-    document.querySelectorAll('.case-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const detail = card.querySelector('.case-detail');
-        const isOpen = detail.classList.contains('open');
-        detail.classList.toggle('open', !isOpen);
-        card.querySelector('.toggle-icon').textContent = isOpen ? '▶' : '▼';
-      });
-      card.querySelector('.toggle-icon').textContent = '▶';
-    });
-  </script>
 </body>
 </html>
