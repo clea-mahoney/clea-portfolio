@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Clea's Portfolio</title>
+  <meta name="description" content="Clea Mahoney’s work in customer education, learning experience design, and AI workflows. Explore program experience and interactive learning samples.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -34,6 +35,9 @@
     .case-card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s, border-color 0.2s; }
     .case-card summary { cursor: pointer; }
     .case-card summary h3 { display: inline; }
+    .case-card > h3 { margin-top: 0; }
+    .case-card > details { margin-top: 1rem; }
+    .case-card > details > summary { color: var(--lagoon); font-weight: 600; }
     .case-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-color: var(--seafoam); }
     .case-card .case-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
     .case-card h3 { font-size: 1.1rem; }
@@ -62,6 +66,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#case-studies">Work samples</a>
+      <a href="resume.html">Resume</a>
       <a href="#consulting">Consulting</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -74,6 +79,7 @@
         <div class="about-block">
           <p><strong>I design for the decisions</strong> you need to make, not just the deliverables you need to get out the door.</p>
           <p>Across learning experience design, customer education, and AI enablement, I help teams bring structure to messy requests, decide when training is the right solution, and turn expertise into clear experiences and AI workflows that keep human judgment where it matters.</p>
+          <p>Most recently, I led customer education at Rewst, building live and self-paced learning for customers using an automation platform.</p>
           <p>Currently open to customer education, AI enablement, and senior LXD roles. I am also available for short-term workflow audits and team training.</p>
         </div>
       </div>
@@ -81,47 +87,48 @@
     <section id="case-studies">
       <h2>Selected work samples</h2>
       <div class="case-grid">
-        <details class="case-card">
-          <summary>
-            <h3>Action mapping at intake</h3>
-          </summary>
-          <p class="case-result">We stopped defaulting to course builds and got to the real fix faster.</p>
-          <div class="case-detail">
-            <p><strong>Problem:</strong> The intake flow assumed training was the answer. Requests needed a quick check for the real performance gap and the smallest effective intervention.</p>
-            <p><strong>What I built:</strong> A triage skill that mapped goal, behavior, obstacle, and intervention before any course work started.</p>
-            <p><strong>Human decision:</strong> The team confirms the action map together and decides whether the right move is a course, product fix, doc update, something else, or a combination.</p>
-            <p><em>Shared skill coming soon.</em></p>
-          </div>
-        </details>
-        <details class="case-card">
-          <summary>
-            <h3>Fixing AI writing at the source</h3>
-          </summary>
+        <article class="case-card">
+          <h3>Launching a customer academy</h3>
+          <p class="case-result">A 55-day LMS launch, followed by live and self-paced customer learning.</p>
+          <p>Customers needed a way to learn a technical product without relying on repeated live training. I led the LMS evaluation and academy launch at Rewst, then kept the program current as the product changed.</p>
+          <p><a href="https://customer.education/podcast/celab-ep-165-clea-mahoney-how-to-launch-a-customer-education-lms-in-55-days-lessons-from-rewsts-rapid-rollout/">Hear the launch story on CELab</a></p>
+          <details><summary>My role and the program</summary><div class="case-detail">
+            <p><strong>What I owned:</strong> LMS selection, the academy launch, curriculum and certification updates, and a small remote education team.</p>
+            <p><strong>Learning design:</strong> We replaced six one-hour certification recordings with seven self-paced courses, scenario-based assessments, and live practice.</p>
+            <p><strong>Live operations:</strong> I managed the calendar for three recurring series, including session setup and the recording library.</p>
+            <p><strong>Program scale:</strong> The academy reached 3,000+ active learners in its first year. That tells me who we reached; checking what customers could do required learning and product evidence.</p>
+          </div></details>
+        </article>
+        <article class="case-card">
+          <h3>Fixing AI writing at the source</h3>
           <p class="case-result">Eval output went from 15 PASS/FAIL lines to a short problem list for a human to make the final calls.</p>
+          <p>Lesson drafts sounded generic. I changed the drafting instructions, added before/after examples, and simplified the review.</p>
+          <p><a href="https://clea-mahoney.github.io/clea-skills/docs/walkthrough/">Try the walkthrough and inspect the before and after</a></p>
+          <details><summary>What changed and where a person decides</summary>
           <div class="case-detail">
             <p><strong>Problem:</strong> Lesson drafts sounded generic because the AI was being told to "write well" in the abstract instead of showing what good looked like.</p>
             <p><strong>What I built:</strong> I rewrote the prompt instructions, added concrete before/after examples, and cut the grader from 15 checks to 4.</p>
             <p><strong>Human decision:</strong> Prioritize fixes like clear image descriptions and defining unclear terminology; make judgment calls on minor details like em dashes and sign-posting.</p>
             <p><a href="https://github.com/clea-mahoney/clea-skills/blob/main/skills/lesson-eval/SKILL.md">View the lesson-eval skill</a></p>
-            <p><strong>Example:</strong> Try the <a href="https://clea-mahoney.github.io/clea-skills/docs/walkthrough/">interactive walkthrough</a> to see how the lesson-eval skill changed and use it on a fictional example lesson.</p>
           </div>
-        </details>
-        <details class="case-card">
-          <summary>
-            <h3>Decision roles in an AI pipeline</h3>
-          </summary>
-          <p class="case-result">SME input stayed labeled as input; the education team kept the decision authority.</p>
-          <div class="case-detail">
-            <p><strong>Problem:</strong> AI note summaries could blur who had authority to decide, turning SME input into a course commitment without preserving the real decision boundary.</p>
-            <p><strong>What I built:</strong> A "who decides what" rule in the workflow: education owned final decisions, while SME input stayed tagged as input rather than a commitment.</p>
-            <p><em>Shared skill coming soon.</em></p>
-          </div>
-        </details>
+          </details>
+        </article>
+        <article class="case-card">
+          <h3>Testing screening rules against the evidence</h3>
+          <p class="case-result">A short practice exercise in choosing criteria, revising a policy, and asking for missing evidence.</p>
+          <p>In this fictional recruiting scenario, learners see which profiles their rules exclude, inspect the evidence, and apply the same criteria to a new profile.</p>
+          <p><a href="https://clea-mahoney.github.io/ats-sandbox/">Try the ATS sandbox</a></p>
+          <details><summary>The learning-design choices</summary><div class="case-detail">
+            <p><strong>Practice first:</strong> Learners choose rules before seeing feedback, then inspect the consequences and revise.</p>
+            <p><strong>Check the reasoning:</strong> The final profile contains relevant experience and missing evidence. The learner needs to choose what to ask next.</p>
+            <p><strong>Evaluation:</strong> Rule choices use an authored answer key for the fictional job brief. Notes are not graded. The exercise uses scripted feedback, without AI scoring or candidate-match percentages.</p>
+          </div></details>
+        </article>
       </div>
     </section>
     <section id="consulting">
       <h2>Consulting</h2>
-      <p>Work in process. Most of these ideas were AI-generated, and need a lot of scrutiny. That said, if you see anything here you'd like to explore, <a href="https://www.linkedin.com/in/cleamahoney">let's talk</a>!</p>
+      <p>These are ideas I’m exploring, and I haven’t figured out pricing yet. If something here sounds useful, <a href="https://www.linkedin.com/in/cleamahoney">let’s talk</a>.</p>
       <div class="case-grid">
         <div class="case-card">
           <div class="case-header">
@@ -145,6 +152,7 @@
     </section>
     <section id="contact">
       <h2>Contact</h2>
+      <p><a href="mailto:clea.mahoney@gmail.com">Email me</a> or <a href="resume.html">read my resume</a>.</p>
       <p class="contact-links"><a href="https://github.com/clea-mahoney">GitHub</a> | <a href="https://www.linkedin.com/in/cleamahoney">LinkedIn</a> | <a href="https://cleamahoney.substack.com/">Substack</a></p>
     </section>
   </main>
