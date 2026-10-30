@@ -25,7 +25,9 @@
     h2 { font-size: 1.6rem; font-weight: 600; color: var(--lagoon); margin-bottom: 1.2rem; border-bottom: 2px solid var(--blush-mist); padding-bottom: 0.5rem; }
     h3 { font-size: 1.2rem; font-weight: 600; color: var(--ink); margin: 1.2rem 0 0.5rem; }
     p { margin-bottom: 1rem; }
-    .about-block { background: var(--blush-mist); padding: 1.8rem; border-left: 4px solid var(--apricot); font-size: 1.05rem; border-radius: 4px; }
+    .about-layout { display: grid; grid-template-columns: minmax(220px, 320px) 1fr; gap: 1.5rem; align-items: center; }
+    .about-photo { width: 100%; display: block; border-radius: 22px; border: 2px solid var(--line); box-shadow: 0 12px 28px rgba(15, 34, 41, 0.1); background: var(--sand); }
+    .about-block { background: var(--blush-mist); padding: 1.8rem; border-left: 4px solid var(--apricot); font-size: 1.05rem; border-radius: 8px; }
     .about-block strong { color: var(--rosewood); }
     .case-grid { display: grid; gap: 1.2rem; }
     .case-card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s, border-color 0.2s; }
@@ -43,6 +45,10 @@
     .contact-item a { color: var(--lagoon); text-decoration: none; font-weight: 600; }
     .contact-item a:hover { text-decoration: underline; }
     footer { text-align: center; padding: 2rem; color: var(--slate); font-size: 0.9rem; border-top: 1px solid var(--line); margin-top: 2rem; }
+    @media (max-width: 700px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-photo { max-width: 320px; margin: 0 auto; }
+    }
     @media (max-width: 600px) {
       header h1 { font-size: 1.7rem; }
       body { font-size: 16px; }
@@ -64,16 +70,19 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <div class="about-block">
-        <p><strong>I design for the decision, not just the deliverable.</strong> I help teams decide when training is the right solution, turn subject-matter expertise into clear experiences, and build AI workflows that keep humans in the loop where judgment matters.</p>
-        <p>My work sits between learning experience design, customer education, and AI enablement. I bring structure to messy requests, encode standards into repeatable systems, and make outputs measurable.</p>
-        <p>Currently open to customer education, AI enablement, and senior LXD roles. I am also available for short-term workflow audits and team training.</p>
+      <div class="about-layout">
+        <img class="about-photo" src="assets/clea-mahoney-headshot-no-banner.png" alt="Clea Mahoney smiling in glasses" />
+        <div class="about-block">
+          <p><strong>I design for the decision, not just the deliverable.</strong> I help teams decide when training is the right solution, turn subject-matter expertise into clear experiences, and build AI workflows that keep humans in the loop where judgment matters.</p>
+          <p>My work sits between learning experience design, customer education, and AI enablement. I bring structure to messy requests, encode standards into repeatable systems, and make outputs measurable.</p>
+          <p>Currently open to customer education, AI enablement, and senior LXD roles. I am also available for short-term workflow audits and team training.</p>
+        </div>
       </div>
     </section>
     <section id="case-studies">
       <h2>Selected work</h2>
       <p>These examples show how I turn ambiguity into a system: decisions, evidence, and repeatable workflows that hold up in real work.</p>
-      <p><a href="https://clea-mahoney.github.io/clea-skills/walkthrough/">Try my interactive skills walkthrough</a>: mark up a sample lesson and see how two of my AI skills changed.</p>
+      <p><a href="https://clea-mahoney.github.io/clea-skills/docs/walkthrough/">Try my interactive skills walkthrough</a>: mark up a sample lesson and see how two of my AI skills changed.</p>
       <div class="case-grid">
         <details class="case-card">
           <summary>
