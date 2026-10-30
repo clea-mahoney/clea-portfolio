@@ -1,74 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Clea's Portfolio</title>
-  <meta name="description" content="Clea Mahoney’s work in customer education, learning experience design, and AI workflows. Explore program experience and interactive learning samples.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clea&#x27;s Portfolio</title>
+  <meta name="description" content="Clea Mahoney’s work in customer education, learning experience design, and AI workflows.">
+  <link rel="canonical" href="https://clea-mahoney.github.io/clea-portfolio/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root { --seafoam: #3CC9A4; --lagoon: #0A5A48; --mint-mist: #E2F6EF; --apricot: #F7B8A0; --rosewood: #82352A; --blush-mist: #FEF0EB; --ink: #0F2229; --slate: #3F4E54; --line: #E4E0D8; --sand: #F7F4EF; --white: #FFFFFF; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; font-size: 18px; }
-    header { background: var(--mint-mist); padding: 3rem 1.5rem 2rem; text-align: center; border-bottom: 1px solid var(--line); }
-    header h1 { font-size: 2.2rem; font-weight: 600; color: var(--lagoon); margin-bottom: 0.5rem; }
-    header p { font-size: 1.1rem; color: var(--slate); max-width: 600px; margin: 0 auto; }
-    nav { display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
-    nav a { color: var(--lagoon); text-decoration: none; font-weight: 600; font-size: 1rem; transition: color 0.2s; }
-    nav a:hover { text-decoration: underline; }
-    strong { font-weight: 600; }
-    a { color: var(--lagoon); }
-    a:focus-visible, summary:focus-visible { outline: 3px solid var(--lagoon); outline-offset: 4px; }
-    main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-    section { margin-bottom: 3rem; }
-    h2 { font-size: 1.6rem; font-weight: 600; color: var(--lagoon); margin-bottom: 1.2rem; border-bottom: 2px solid var(--blush-mist); padding-bottom: 0.5rem; }
-    h3 { font-size: 1.2rem; font-weight: 600; color: var(--ink); margin: 1.2rem 0 0.5rem; }
-    p { margin-bottom: 1rem; }
-    #about { padding-top: 0.6rem; }
-    .about-layout { display: grid; grid-template-columns: minmax(220px, 320px) 1fr; gap: 1.5rem; align-items: center; margin-top: 0.2rem; }
-    .about-photo { width: 100%; display: block; border-radius: 22px; border: 2px solid var(--line); box-shadow: 0 12px 28px rgba(15, 34, 41, 0.1); background: var(--sand); }
-    .about-block { background: var(--blush-mist); padding: 1.8rem; border-left: 4px solid var(--apricot); font-size: 1.05rem; border-radius: 8px; }
-    .about-block strong { color: var(--rosewood); }
-    .case-grid { display: grid; gap: 1.2rem; }
-    .case-card { border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s, border-color 0.2s; }
-    .case-card summary { cursor: pointer; }
-    .case-card summary h3 { display: inline; }
-    .case-card > h3 { margin-top: 0; }
-    .case-card > details { margin-top: 1rem; }
-    .case-card > details > summary { color: var(--lagoon); font-weight: 600; }
-    .case-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-color: var(--seafoam); }
-    .case-card .case-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-    .case-card h3 { font-size: 1.1rem; }
-    .case-card .case-category { font-size: 0.85rem; background: var(--sand); color: var(--slate); padding: 0.2rem 0.6rem; border-radius: 12px; }
-    .case-card .case-result { font-weight: 600; color: var(--lagoon); margin-top: 0.4rem; font-size: 0.95rem; }
-    .case-detail { margin-top: 1.5rem; padding: 1.5rem; background: var(--mint-mist); border-radius: 8px; border-left: 4px solid var(--seafoam); }
-    .case-detail p { margin-bottom: 0.8rem; }
-    .contact-links a { color: var(--lagoon); text-decoration: none; font-weight: 600; }
-    .contact-links a:hover { text-decoration: underline; }
-    footer { text-align: center; padding: 2rem; color: var(--slate); font-size: 0.9rem; border-top: 1px solid var(--line); margin-top: 2rem; }
-    @media (max-width: 700px) {
-      .about-layout { grid-template-columns: 1fr; }
-      .about-photo { max-width: 320px; margin: 0 auto; }
-    }
-    @media (max-width: 600px) {
-      header h1 { font-size: 1.7rem; }
-      body { font-size: 16px; }
-      nav { gap: 1rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>Clea Mahoney</h1>
     <p>Learning experience designer focused on customer education, AI enablement, and education technology systems.</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#case-studies">Work samples</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="./" aria-current="page">About</a>
+      <a href="work-samples.html">Work samples</a>
+      <a href="consulting.html">Consulting</a>
       <a href="resume.html">Resume</a>
-      <a href="#consulting">Consulting</a>
-      <a href="#contact">Contact</a>
+      <a href="./#contact">Contact</a>
     </nav>
   </header>
   <main>
@@ -79,83 +31,20 @@
         <div class="about-block">
           <p><strong>I design for the decisions</strong> you need to make, not just the deliverables you need to get out the door.</p>
           <p>Across learning experience design, customer education, and AI enablement, I help teams bring structure to messy requests, decide when training is the right solution, and turn expertise into clear experiences and AI workflows that keep human judgment where it matters.</p>
-          <p>Most recently, I led customer education at Rewst, building live and self-paced learning for customers using an automation platform.</p>
           <p>Currently open to customer education, AI enablement, and senior LXD roles. I am also available for short-term workflow audits and team training.</p>
         </div>
       </div>
     </section>
-    <section id="case-studies">
-      <h2>Selected work samples</h2>
-      <div class="case-grid">
-        <article class="case-card">
-          <h3>Launching a customer academy</h3>
-          <p class="case-result">A 55-day LMS launch, followed by live and self-paced customer learning.</p>
-          <p>Customers needed a way to learn a technical product without relying on repeated live training. I led the LMS evaluation and academy launch at Rewst, then kept the program current as the product changed.</p>
-          <p><a href="https://customer.education/podcast/celab-ep-165-clea-mahoney-how-to-launch-a-customer-education-lms-in-55-days-lessons-from-rewsts-rapid-rollout/">Hear the launch story on CELab</a></p>
-          <details><summary>My role and the program</summary><div class="case-detail">
-            <p><strong>What I owned:</strong> LMS selection, the academy launch, curriculum and certification updates, and a small remote education team.</p>
-            <p><strong>Learning design:</strong> We replaced six one-hour certification recordings with seven self-paced courses, scenario-based assessments, and live practice.</p>
-            <p><strong>Live operations:</strong> I managed the calendar for three recurring series, including session setup and the recording library.</p>
-            <p><strong>Program scale:</strong> The academy reached 3,000+ active learners in its first year. That tells me who we reached; checking what customers could do required learning and product evidence.</p>
-          </div></details>
-        </article>
-        <article class="case-card">
-          <h3>Fixing AI writing at the source</h3>
-          <p class="case-result">Eval output went from 15 PASS/FAIL lines to a short problem list for a human to make the final calls.</p>
-          <p>Lesson drafts sounded generic. I changed the drafting instructions, added before/after examples, and simplified the review.</p>
-          <p><a href="https://clea-mahoney.github.io/clea-skills/docs/walkthrough/">Try the walkthrough and inspect the before and after</a></p>
-          <details><summary>What changed and where a person decides</summary>
-          <div class="case-detail">
-            <p><strong>Problem:</strong> Lesson drafts sounded generic because the AI was being told to "write well" in the abstract instead of showing what good looked like.</p>
-            <p><strong>What I built:</strong> I rewrote the prompt instructions, added concrete before/after examples, and cut the grader from 15 checks to 4.</p>
-            <p><strong>Human decision:</strong> Prioritize fixes like clear image descriptions and defining unclear terminology; make judgment calls on minor details like em dashes and sign-posting.</p>
-            <p><a href="https://github.com/clea-mahoney/clea-skills/blob/main/skills/lesson-eval/SKILL.md">View the lesson-eval skill</a></p>
-          </div>
-          </details>
-        </article>
-        <article class="case-card">
-          <h3>Testing screening rules against the evidence</h3>
-          <p class="case-result">A short practice exercise in choosing criteria, revising a policy, and asking for missing evidence.</p>
-          <p>In this fictional recruiting scenario, learners see which profiles their rules exclude, inspect the evidence, and apply the same criteria to a new profile.</p>
-          <p><a href="https://clea-mahoney.github.io/ats-sandbox/">Try the ATS sandbox</a></p>
-          <details><summary>The learning-design choices</summary><div class="case-detail">
-            <p><strong>Practice first:</strong> Learners choose rules before seeing feedback, then inspect the consequences and revise.</p>
-            <p><strong>Check the reasoning:</strong> The final profile contains relevant experience and missing evidence. The learner needs to choose what to ask next.</p>
-            <p><strong>Evaluation:</strong> Rule choices use an authored answer key for the fictional job brief. Notes are not graded. The exercise uses scripted feedback, without AI scoring or candidate-match percentages.</p>
-          </div></details>
-        </article>
-      </div>
-    </section>
-    <section id="consulting">
-      <h2>Consulting</h2>
-      <p>These are ideas I’m exploring, and I haven’t figured out pricing yet. If something here sounds useful, <a href="https://www.linkedin.com/in/cleamahoney">let’s talk</a>.</p>
-      <div class="case-grid">
-        <div class="case-card">
-          <div class="case-header">
-            <h3>Workshop: working well with the AI you're given</h3>
-          </div>
-          <p>Practice working with the AI your team has approved, within the constraints you're facing, and shaping its output into work you'd be proud to put your name on. Deliverable: a 60-minute live, online session with hands-on practice.</p>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
-            <h3>AI workflow audit</h3>
-          </div>
-          <p>Map where AI already shows up, find prompts worth turning into reusable skills, and name the human decision points. Deliverable: a prioritized plan and one working skill.</p>
-        </div>
-        <div class="case-card">
-          <div class="case-header">
-            <h3>Turn your ID standards into AI instructions</h3>
-          </div>
-          <p>Encode the team's style guide, rubric, and intake process as focused skills with clear handoffs. Deliverable: a starter set of skills and a fit-for-purpose evaluation.</p>
-        </div>
-      </div>
-    </section>
+    <nav class="section-links" aria-label="Explore my work">
+      <a class="section-link" id="case-studies" href="work-samples.html"><h2>Selected work samples →</h2><p>Learning programs, AI workflows, and interactive practice.</p></a>
+      <a class="section-link" id="consulting" href="consulting.html"><h2>Consulting →</h2><p>Workshop and workflow ideas I’m exploring.</p></a>
+    </nav>
     <section id="contact">
       <h2>Contact</h2>
       <p><a href="mailto:clea.mahoney@gmail.com">Email me</a> or <a href="resume.html">read my resume</a>.</p>
       <p class="contact-links"><a href="https://github.com/clea-mahoney">GitHub</a> | <a href="https://www.linkedin.com/in/cleamahoney">LinkedIn</a> | <a href="https://cleamahoney.substack.com/">Substack</a></p>
     </section>
   </main>
-  <footer>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
+  <footer class="page-footer"><p><a href="./">About</a> · <a href="work-samples.html">Work samples</a> · <a href="consulting.html">Consulting</a> · <a href="resume.html">Resume</a></p>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
 </body>
 </html>
