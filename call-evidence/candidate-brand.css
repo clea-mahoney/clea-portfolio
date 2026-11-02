@@ -1,0 +1,9 @@
+/* Candidate presentation: Paper #FFFEFB, Espresso #201515, Coal #36342E,
+   Zapier Orange #FF4F00, Mist #F8F4F0, Stone #C5C0B1.
+   Existing approved typography and palette retained from October 21, 2026. */
+@font-face{font-family:ZapierDisplay;font-weight:500;font-style:normal;font-display:swap;src:url('https://marketing-site.vercel.zapier.com/_next/static/media/b9a37491f5c9eb6c-s.p.woff2') format('woff2')}
+@font-face{font-family:ZapierInter;font-weight:100 900;font-style:normal;font-display:swap;src:url('https://marketing-site.vercel.zapier.com/_next/static/media/e4af272ccee01ff0-s.p.woff2') format('woff2')}
+:root[data-brand=zapier]{--paper:#FFFEFB;--ink:#201515;--muted:#36342E;--accent:#201515;--signal:#FF4F00;--wash:#F8F4F0;--secondary:#36342E;--soft:#F8F4F0;--line:#C5C0B1;--button:#FF4F00;--on-button:#FFFEFB;--body:ZapierInter,Inter,sans-serif;--display:ZapierDisplay,Inter,sans-serif;--display-weight:500;--radius:4px}
+:root[data-brand=zapier] h1,:root[data-brand=zapier] h2,:root[data-brand=zapier] h3{letter-spacing:normal}
+:root[data-brand=zapier] h1{font-size:clamp(36px,4.5vw,56px)}
+:root[data-brand=zapier] body:not([data-stage=story]) h1{font-size:36px}

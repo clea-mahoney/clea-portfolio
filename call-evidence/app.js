@@ -203,16 +203,12 @@ function exportHistory() {
   const url = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
   const a = document.createElement('a'); a.href = url; a.download = 'customer-evidence.csv'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-function setBrand(value) {
-  const brand = ['clea', 'zapier'].includes(value) ? value : 'clea';
-  document.documentElement.dataset.brand = brand;
-  document.querySelectorAll('[data-brand-choice]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.brandChoice === brand)));
-  try { localStorage.setItem('clea-call-evidence-brand', brand); } catch {}
-  const url = new URL(location.href); url.searchParams.set('brand', brand); history.replaceState(null, '', url);
+// Presentation branding is fixed by the generated page, never a saved preference.
+const pageURL = new URL(location.href);
+if (pageURL.searchParams.has('brand')) {
+  pageURL.searchParams.delete('brand');
+  history.replaceState(null, '', pageURL);
 }
-let initialBrand = 'clea'; try { initialBrand = localStorage.getItem('clea-call-evidence-brand') || initialBrand; } catch {}
-setBrand(new URLSearchParams(location.search).get('brand') || initialBrand);
-document.querySelectorAll('[data-brand-choice]').forEach(b => b.onclick = () => setBrand(b.dataset.brandChoice));
 document.getElementById('previous').onclick = () => go(index - 1);
 document.getElementById('next').onclick = () => go(index + 1);
 document.getElementById('restart').onclick = () => { document.getElementById('decision-form')?.remove(); week.reset(); highlightedTheme = null; activeQuestion = 'bounded'; reviewOpen = false; researchOpen = false; go(0); };
