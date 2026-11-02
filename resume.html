@@ -9,10 +9,18 @@
   <style>
     :root{--lagoon:#0A5A48;--mint-mist:#E2F6EF;--ink:#0F2229;--slate:#3F4E54;--line:#E4E0D8;--white:#FFFFFF}
     *{box-sizing:border-box}body{margin:0;background:var(--white);color:var(--ink);font:400 17px/1.6 'DM Sans',sans-serif}main{max-width:850px;margin:auto;padding:32px 24px 60px}a{color:var(--lagoon);text-underline-offset:4px}a:focus-visible{outline:3px solid var(--lagoon);outline-offset:4px}h1,h2,h3,strong{font-weight:600}h1{font-size:34px;margin:24px 0 2px;color:var(--lagoon)}h2{font-size:24px;color:var(--lagoon);border-bottom:1px solid var(--line);padding-bottom:8px;margin-top:32px}h3{font-size:18px;margin:24px 0 2px}p{margin:8px 0 14px}.date{color:var(--slate);font-size:15px}ul{padding-left:23px}li{margin:8px 0}.intro{background:var(--mint-mist);padding:20px;border-radius:8px;margin:24px 0}footer{border-top:1px solid var(--line);margin-top:32px;padding-top:20px}@media print{body{font-size:11pt}main{padding:0}.back{display:none}h2,h3{break-after:avoid}li{break-inside:avoid}a{color:var(--ink)}}
+    .site-nav{display:flex;flex-wrap:wrap;gap:0.6rem 1.2rem}.site-nav a[aria-current="page"]{font-weight:600}
   </style>
 </head>
 <body><main>
-  <a class="back" href="./">← Back to the portfolio</a>
+  <nav class="back site-nav" aria-label="Main navigation">
+    <a href="./">About</a>
+    <a href="work-samples.html">Work</a>
+    <a href="speaking.html">Speaking &amp; events</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="resume.html" aria-current="page">Resume</a>
+    <a href="./#contact">Contact</a>
+  </nav>
   <h1>Clea Mahoney</h1><p>Customer education and learning experience design</p>
   <p><a href="mailto:clea.mahoney@gmail.com">clea.mahoney@gmail.com</a> · <a href="https://www.linkedin.com/in/cleamahoney">LinkedIn</a> · <a href="https://github.com/clea-mahoney">GitHub</a></p>
   <p class="intro">10+ years designing and teaching live, self-paced, and blended learning for university faculty, customer support teams, and IT professionals. Most recently led customer education at Rewst, an automation startup, building learning programs and AI workflows for a small education team.</p>
@@ -34,6 +42,6 @@
   </section>
   <section aria-labelledby="practice"><h2 id="practice">Skills and tools</h2><p>Action mapping, scenario-based assessment, certification and learning paths, Universal Design for Learning, live facilitation, communities of practice, and learning-program evaluation.</p><p>Skilljar, D2L Brightspace, Sakai, Canvas, Claude, ChatGPT, Gemini, Notion AI, HubSpot, Power BI, Amplitude, Microsoft Teams, Zoom, and Google Workspace.</p></section>
   <section aria-labelledby="education"><h2 id="education">Education</h2><p>M.S., Library &amp; Information Science, Drexel University<br>B.A., French, Drew University</p></section>
-  <footer><a href="work-samples.html">Explore selected work →</a></footer>
+  <footer><a href="work-samples.html">Work examples</a> · <a href="speaking.html">Speaking &amp; events</a></footer>
 </main></body>
 </html>
