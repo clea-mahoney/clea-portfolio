@@ -51,7 +51,7 @@ function story() {
   <h2>How the workflow evolved</h2>
   <div class="evolution">
     <details><summary><span class="evolution-title">Manual call review</span><span class="expand-hint">Read more</span></summary><p>I copied Gong transcripts into Notion AI, checked the findings, and added verified input to a Notion database. I then created a Notion agent to repeat the review.</p></details>
-    <details><summary><span class="evolution-title">Rules I could check</span><span class="expand-hint">Read more</span></summary><p>The rules kept quotes and timestamps, compared findings with existing themes, and flagged uncertain speakers. I could check the recording, attendee details, or Gong against Fellow when both were available.</p><p><a href="workflow-rules.txt">Read the full rules</a></p></details>
+    <details><summary><span class="evolution-title">Rules I could check</span><span class="expand-hint">Read more</span></summary><p>The rules kept quotes and timestamps, compared findings with existing themes, and flagged uncertain speakers. I could check the recording, attendee details, or Gong against Fellow when both were available.</p><p><a href="workflow-rules.txt" target="_blank" rel="noopener">Read the full rules</a></p></details>
     <details><summary><span class="evolution-title">Friday review</span><span class="expand-hint">Read more</span></summary><p>I moved the same rules into a scheduled Claude Code skill. Each Friday, a laptop alert showed me the new evidence and open questions.</p></details>
   </div>
   <section class="walkthrough-invite"><h2>Explore the sample week</h2><p>Follow two calls, open the Friday alert, and try the review decisions.</p></section>`;
@@ -201,7 +201,7 @@ function render() {
 function exportHistory() {
   const csv = week.exportCSV(routeLabels);
   const url = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }));
-  const a = document.createElement('a'); a.href = url; a.download = 'customer-evidence.csv'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const a = document.createElement('a'); a.href = url; a.download = 'customer-evidence.csv'; a.target = '_blank'; a.rel = 'noopener'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 // Presentation branding is fixed by the generated page, never a saved preference.
 const pageURL = new URL(location.href);
