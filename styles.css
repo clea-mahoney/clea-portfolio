@@ -278,13 +278,13 @@ p {
 
 #contact {
   padding: clamp(1.5rem, 4vw, 2.6rem);
-  background: var(--blush-mist);
+  background: #9ddfc8;
   border-radius: 14px;
 }
 
 #contact h2 {
   margin-bottom: 0.65rem;
-  color: var(--rosewood);
+  color: var(--lagoon);
 }
 
 #contact p:last-child {
@@ -465,6 +465,22 @@ p {
 .resume-main {
   max-width: 850px;
   padding-top: 2.5rem;
+  line-height: 1.55;
+}
+
+.resume-page {
+  background: var(--white);
+}
+
+.resume-page .compact {
+  background: var(--white);
+}
+
+.resume-main h1,
+.resume-main h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 .resume-main h1 {
@@ -503,10 +519,9 @@ p {
 
 .resume-main .intro {
   margin: 1.4rem 0 2rem;
-  padding: 1.3rem 1.5rem;
+  padding: 0 0 1.4rem;
   color: var(--ink);
-  background: var(--mint-mist);
-  border-radius: 12px;
+  border-bottom: 1px solid var(--line);
 }
 
 .resume-main footer {
