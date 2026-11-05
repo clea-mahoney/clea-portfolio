@@ -222,28 +222,26 @@ p {
 
 .section-links {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
   margin-bottom: 4rem;
+  border-top: 1px solid var(--line);
 }
 
 .section-link {
-  display: block;
-  min-height: 155px;
-  padding: 1.4rem 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 1rem 1.5rem;
+  padding: 1rem 0.75rem;
   color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  border-bottom: 1px solid var(--line);
   text-decoration: none;
-  transition: border-color 160ms ease, background-color 160ms ease, transform 180ms var(--ease-out);
+  transition: background-color 160ms ease, color 160ms ease;
 }
 
 .section-link:hover {
   color: var(--ink);
-  background: #edf2ef;
-  border-color: var(--seafoam);
-  transform: translateY(-2px);
+  background: var(--surface);
 }
 
 .section-link h2 {
@@ -251,14 +249,25 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
   color: var(--lagoon);
-  font-size: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  transition: color 160ms ease;
+}
+
+.section-link:hover h2 {
+  color: var(--ink);
+}
+
+.section-link h2 span {
+  transition: transform 160ms var(--ease-out);
+}
+
+.section-link:hover h2 span {
+  transform: translateX(3px);
 }
 
 .section-link p {
-  max-width: 44ch;
   margin: 0;
   color: var(--slate);
   font-size: 0.94rem;
@@ -624,19 +633,19 @@ p {
     justify-self: start;
   }
 
-  .section-links {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    margin-bottom: 3rem;
-  }
-
   .section-link {
-    min-height: auto;
-    padding: 1.15rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.35rem 1rem;
+    padding: 0.9rem 0.5rem;
   }
 
   .section-link h2 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
+  }
+
+  .section-link p {
+    grid-column: 1 / -1;
+    font-size: 0.9rem;
   }
 
   .work-example {
