@@ -1,0 +1,8 @@
+# Locally installed agent skills and tool settings; not part of the site
+.agents/
+.claude/
+.codex/
+.github/agents/
+.github/hooks/
+.github/skills/
+skills-lock.json
