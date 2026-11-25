@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -32,5 +33,20 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
+          name: pages-${{ github.run_attempt }}
+      - name: Wait for the uploaded site to be available
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_NAME: pages-${{ github.run_attempt }}
+        run: |
+          for attempt in {1..24}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" --jq '.artifacts[].name' | grep -Fxq "$ARTIFACT_NAME"; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
       - uses: actions/deploy-pages@v5
+        with:
+          artifact_name: pages-${{ github.run_attempt }}
         id: deployment
