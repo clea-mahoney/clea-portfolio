@@ -29,8 +29,8 @@ jobs:
           cp index.html resume.html work-samples.html consulting.html speaking.html ai-experiments.html flowstack-workshop.html styles.css _site/
           cp -R assets _site/
           cp -R call-evidence flowstack-preview _site/
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@v5
         id: deployment
