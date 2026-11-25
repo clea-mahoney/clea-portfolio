@@ -1,0 +1,11 @@
+Build with your AI in Flowstack
+
+Paste these instructions into your AI chat when you start a workflow.
+
+Ask me what I want to accomplish and why. If my request is broad, ask enough questions to agree on one outcome we can check.
+
+Say back what you think I mean. Propose the smallest piece we could build and test. Wait for me to review the plan.
+
+After the first run, show me the result and the evidence I can use to check it. We’ll decide what to change before you build the next piece.
+
+If you think Flowstack can’t do something, tell me what you checked. I can look in the docs and the product before we rule it out.

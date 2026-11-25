@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowstack preview: follow a service request</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      /* for older browsers */
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      /* for older browsers */
+      height: 100vh;
+      height: 100dvh;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateZ(0);
+    }
+  </style>
+  <!-- Load SCORM driver bundle -->
+  <script src="scorm-driver.umd.js"></script>
+</head>
+<body>
+  <script>
+    (function() {
+      // Check if ScormDriver loaded successfully
+      if (typeof ScormDriver === 'undefined') {
+        console.error('[SCORM] ScormDriver bundle not loaded!');
+        return;
+      }
+
+      // Initialize cross-domain router
+      const router = new ScormDriver.CrossDomainRouter({ debug: true });
+      const hasApi = router.init();
+
+      console.info('[SCORM] LMS API ' + (hasApi ? 'found' : 'not found'));
+
+      // Build course URL with all parameters
+      const buildCourseUrl = () => {
+        const url = new URL('../index.html', window.location.href);
+
+        // Pass through all LMS parameters from current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        for (const [key, value] of urlParams.entries()) {
+          url.searchParams.set(key, value);
+        }
+
+        url.searchParams.set('lmsUrl', window.location.href);
+        if (window.self !== window.top && document.referrer) {
+          url.searchParams.set('lmsParentUrl', document.referrer);
+        }
+
+        // ALWAYS set postMessage mode flag
+        url.searchParams.set('scorm_proxy', 'postmessage');
+        // Add channelId for isolation when nested courses are present
+        url.searchParams.set('scorm_channel', router.getChannelId());
+
+        return url.toString();
+      };
+
+      // Create iframe with course
+      const iframe = document.createElement('iframe');
+      iframe.src = buildCourseUrl();
+      iframe.allow = 'fullscreen *; autoplay *; encrypted-media *; picture-in-picture *';
+      iframe.setAttribute('data-qa-data', '"el":"iframe"|"name":"scormDriver"|');
+      iframe.setAttribute('allowfullscreen', 'true');
+      document.body.appendChild(iframe);
+
+      router.setupRouter(iframe);
+    })();
+  </script>
+</body>
+</html>

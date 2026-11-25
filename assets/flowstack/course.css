@@ -1,0 +1,32 @@
+/* Portfolio presentation of the Parta HTML export. */
+main[class*="CourseLanding_root"] {padding-top:clamp(2rem,5vw,4rem);--section-gap:clamp(3rem,8vw,5rem)}
+main[class*="CourseLanding_root"] [class*="RichText_root"] {max-width:68ch}
+main [class*="RichText_root"] p + p {margin-top:.7em}
+main [class*="RichText_root"] p + h2 {margin-top:1.25em}
+main [class*="RichText_root"] h2 + p {margin-top:.4em}
+main [class*="RichText_root"] h1 {font-size:clamp(2rem,4vw,3rem);line-height:1.12}
+main [class*="RichText_root"] h2 {font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.2}
+main button:not(:disabled) {background-color:#0a5a48 !important;color:white !important}
+main button:not(:disabled) * {color:inherit !important}
+main button:not(:disabled):hover {background-color:#064738 !important}
+main button:focus-visible {outline:3px solid #82352a;outline-offset:3px}
+/* Parta exports each authored block on its own grid, including spacer rows.
+   Let lesson text and the practice panel flow at their content height. */
+main[class*="CourseLanding_root"] > [data-scroll-id] {
+  width:min(100%, 54rem); margin-inline:auto; padding:0 clamp(1.5rem,6vw,4rem);
+}
+main[class*="CourseLanding_root"] > [data-scroll-id] [data-scroll-id],
+main[class*="CourseLanding_root"] [data-element-id] {
+  position:static!important; display:block!important; width:100%!important;
+  height:auto!important; min-height:0!important; max-width:none!important;
+  padding:0!important; margin:0!important;
+}
+main[class*="CourseLanding_root"] > [data-scroll-id] + [data-scroll-id] {margin-top:var(--section-gap)}
+main[class*="CourseLanding_root"] > [data-scroll-id] + [data-scroll-id]:has(iframe) {margin-top:.75rem}
+main[class*="CourseLanding_root"] [class*="RichText_root"] {margin-inline:0;max-width:60ch}
+main[class*="CourseLanding_root"] h1 {margin-bottom:1rem}
+main[class*="CourseLanding_root"] [class*="EmbeddedElement_root"],
+main[class*="CourseLanding_root"] iframe {height:var(--practice-height, 26rem)!important;min-height:0!important;width:100%!important}
+main[class*="CourseLanding_root"] [class*="RichText_root"] > div + div {margin-top:1.5rem}
+main[class*="CourseLanding_root"] [class*="RichText_root"] > :is(div,p) + h2 {margin-top:var(--section-gap)}
+main[class*="CourseLanding_root"] [class*="RichText_root"] > h2 + div {margin-top:.85rem}

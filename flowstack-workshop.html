@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teaching customers to build with AI | Clea Mahoney</title>
+  <meta name="description" content="A facilitator script and learner handout adapted from a Rewst workshop.">
+  <link rel="canonical" href="https://clea-mahoney.github.io/clea-portfolio/flowstack-workshop.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=portfolio-work-rows-20261105">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="site-name"><a href="./" target="_blank" rel="noopener">Clea Mahoney</a></p>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="./" target="_blank" rel="noopener">About</a>
+        <a href="work-samples.html" aria-current="page" target="_blank" rel="noopener">Work</a>
+        <a href="speaking.html" target="_blank" rel="noopener">Speaking &amp; events</a>
+        <a href="consulting.html" target="_blank" rel="noopener">Consulting</a>
+        <a href="resume.html" target="_blank" rel="noopener">Resume</a>
+        <a href="./#contact" target="_blank" rel="noopener">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1 class="page-title">Teaching customers to build with AI</h1>
+    <p>In my Build with Rewst MCP workshop, customers used their own AI chat to direct a workflow build. This excerpt adapts the opening poll and learner handout. The demo below uses fictional Flowstack workflows to illustrate a tip from the workshop: ask the AI to flag possible duplicates.</p>
+    <section><h2>Open with a poll</h2>
+    <p>Ask two questions: “Have you used an AI chat for work?” and “Have you heard of Model Context Protocol (MCP) before today?” Read the results aloud and choose your opener.</p>
+    <details><summary>Most people are new, or the room is mixed</summary><p>Say, “Think of MCP as a common plug for AI apps. It lets the chat you already use connect to Flowstack. Today we’ll ask it to look through a list of workflows for us.”</p></details>
+    <details><summary>Most people know MCP</summary><p>Say, “We’ll use Flowstack’s MCP connection to inspect existing workflows from this chat. Before we run anything, let’s agree on what counts as a duplicate.”</p></details>
+    </section>
+    <section><h2>Demo: Would you flag these as duplicates?</h2>
+    <p>Give the AI a request out loud: “I’m maintaining two password-reset workflows. Help me figure out whether we still need both. Before you start, tell me what you think I’m asking you to do.”</p>
+    <p>Pause on the AI’s plan. Ask the room, “What would you want to see before retiring either workflow?” Take an answer, then ask the AI to compare what starts each workflow and what it does. Have it report its findings and leave both workflows in place.</p>
+    <ul><li><strong>Password reset notification</strong> emails the requester after a successful reset.</li><li><strong>Password reset alert</strong> opens a service desk ticket after a failed reset.</li></ul>
+    <p>Compare the AI’s recommendation with the two definitions. If it flags the pair on their names alone, ask it to show which event and action they share. Ask the room, “What would stop happening if we retired the second workflow?” Use their answer to decide whether the review is ready to run on a longer list.</p></section>
+    <section><h2>Shared cheat sheet for building with AI</h2>
+    <p>Customers used the same one-page reference for two courses (one focused on external AI and MCP, and one focused on in-app AI). They could keep the PDF open while building or paste its instructions into their own AI chat.</p>
+    <p><a href="assets/flowstack-cheat-sheet.pdf" target="_blank" rel="noopener">Open the one-page cheat sheet (PDF)</a></p>
+    <h3>Instructions for your AI chat</h3>
+    <blockquote id="chat-instructions"><p>Ask me what I want to accomplish and why. If my request is broad, ask enough questions to agree on one outcome we can check.</p><p>Say back what you think I mean. Propose the smallest piece we could build and test. Wait for me to review the plan.</p><p>After the first run, show me the result and the evidence I can use to check it. We’ll decide what to change before you build the next piece.</p><p>If you think Flowstack can’t do something, tell me what you checked. I can look in the docs and the product before we rule it out.</p></blockquote>
+    <p><button id="copy-instructions" type="button">Copy for AI</button> <span role="status" id="copy-status"></span></p>
+    <p><a href="assets/flowstack-build-with-ai.txt" download target="_blank" rel="noopener">Download the chat instructions (.txt)</a></p></section>
+  </main>
+  <script>
+    document.querySelector('#copy-instructions').addEventListener('click', async () => {
+      const text = document.querySelector('#chat-instructions').innerText;
+      const status = document.querySelector('#copy-status');
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = 'Copied. Paste into your AI chat.';
+      } catch {
+        status.textContent = 'Select the instructions above to copy them, or download the text below.';
+      }
+    });
+  </script>
+
+  <footer class="page-footer"><p><a href="./" target="_blank" rel="noopener">About</a> · <a href="work-samples.html" target="_blank" rel="noopener">Work</a> · <a href="speaking.html" target="_blank" rel="noopener">Speaking &amp; events</a> · <a href="consulting.html" target="_blank" rel="noopener">Consulting</a> · <a href="resume.html" target="_blank" rel="noopener">Resume</a></p>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
+</body>
+</html>
