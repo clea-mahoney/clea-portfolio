@@ -325,6 +325,8 @@ p {
   margin: 0;
 }
 
+.testimonials-list blockquote p + p { margin-top: .75em; }
+
 .testimonials-list figcaption {
   color: var(--slate);
   font-size: .9rem;
