@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=recordings-1">
+  <link rel="stylesheet" href="styles.css?v=recordings-2">
 </head>
 <body>
   <header class="site-header">
@@ -27,7 +27,7 @@
   </header>
   <main>
     <h1 class="page-title">Speaking &amp; events</h1>
-    <p>Conversations and practical examples from my work in customer education and learning design.</p>
+    <p>Conversations and practical examples from my work in customer education and learning design. Select a recording to play it here.</p>
     <section class="work-list" aria-label="Talks and podcast recordings">
       <details class="recording" id="celab-193" name="recordings" data-video="QyLfZD_2FI8">
         <summary>
@@ -49,7 +49,7 @@
           <p class="recording-links"><a href="https://www.youtube.com/watch?v=8S0hAT4HGhc" target="_blank" rel="noopener">Watch on YouTube</a> · <a href="https://customer.education/podcast/celab-ep-191-talk-to-it-dont-prompt-it-part-1/" target="_blank" rel="noopener">Listen to episode 191</a></p>
         </div>
       </details>
-      <details class="recording" id="skilljar" name="recordings">
+      <details class="recording" id="skilljar" name="recordings" data-player="https://play.vidyard.com/mGgsydu96uof82QyKcsp2T.html">
         <summary>
           <h2 id="skilljar-title">“Wait, how did you get AI to do that?”: AI workflows for customer education</h2>
           <span class="appearance-meta">Skilljar by Gainsight · Webinar presenter with Christie DeCarolis · <time datetime="2026-10-15">October 15, 2026</time></span>
@@ -99,7 +99,7 @@
           <p class="recording-links"><a href="https://www.youtube.com/watch?v=SM8VKmBFnsI" target="_blank" rel="noopener">Watch on YouTube</a></p>
         </div>
       </details>
-      <details class="recording" id="customer-academy" name="recordings">
+      <details class="recording" id="customer-academy" name="recordings" data-audio="https://episodes.castos.com/celabs/2139560/c1e-kwnwugv6p8ix0gp4-qdokz4xxadvz-nmpzxu.mp3">
         <summary>
           <h2 id="celab-title">How to launch a customer education LMS in 55 days: lessons from Rewst’s rapid rollout</h2>
           <span class="appearance-meta">CELab · Episode 165 · Podcast guest · <time datetime="2025-09-12">September 12, 2025</time></span>
@@ -144,23 +144,44 @@
   <footer class="page-footer"><p><a href="./" target="_blank" rel="noopener">About</a> · <a href="work-samples.html" target="_blank" rel="noopener">Work</a> · <a href="speaking.html" target="_blank" rel="noopener">Speaking &amp; events</a> · <a href="consulting.html" target="_blank" rel="noopener">Consulting</a> · <a href="resume.html" target="_blank" rel="noopener">Resume</a></p>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
   <script>
     const recordings = document.querySelectorAll('.recording');
-    function syncPlayer(recording) {
-      const frame = recording.querySelector('iframe');
+    function syncPlayer(recording, playOnOpen) {
+      const current = recording.querySelector('iframe, audio');
       if (!recording.open) {
-        frame?.remove();
+        current?.remove();
         return;
       }
-      if (!recording.dataset.video || frame) return;
+      if (current) return;
+      const links = recording.querySelector('.recording-links');
+      const title = recording.querySelector('h2').textContent;
+      if (recording.dataset.audio) {
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = recording.dataset.audio;
+        audio.setAttribute('aria-label', title);
+        links.before(audio);
+        if (playOnOpen) audio.play().catch(() => {});
+        return;
+      }
+      const url = new URL(recording.dataset.player ||
+        'https://www.youtube-nocookie.com/embed/' + recording.dataset.video);
+      if (playOnOpen) url.searchParams.set('autoplay', '1');
       const player = document.createElement('iframe');
-      player.title = recording.querySelector('h2').textContent;
-      player.src = 'https://www.youtube-nocookie.com/embed/' + recording.dataset.video;
+      player.title = title;
+      player.src = url.href;
       player.referrerPolicy = 'strict-origin-when-cross-origin';
-      player.allow = 'encrypted-media; picture-in-picture; fullscreen';
+      player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       player.allowFullscreen = true;
-      recording.querySelector('.recording-links').before(player);
+      links.before(player);
     }
     for (const recording of recordings) {
-      recording.addEventListener('toggle', () => syncPlayer(recording));
+      let playOnOpen = false;
+      recording.querySelector('summary').addEventListener('click', () => {
+        playOnOpen = !recording.open;
+      });
+      recording.addEventListener('toggle', () => {
+        syncPlayer(recording, playOnOpen);
+        playOnOpen = false;
+      });
     }
     function openLinkedRecording() {
       const recording = document.getElementById(location.hash.slice(1))?.closest('.recording');

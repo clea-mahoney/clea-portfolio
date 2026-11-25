@@ -499,6 +499,7 @@ p {
 .appearance-meta { color: var(--slate); font-size: .91rem; }
 .recording-body { max-width: 48rem; padding-bottom: 1.5rem; }
 .recording-body iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.recording-body audio { display: block; width: 100%; }
 .recording-links { margin: 1rem 0 0; }
 
 .case-grid {
