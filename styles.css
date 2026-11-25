@@ -474,7 +474,7 @@ p {
   display: block;
   list-style: none;
   cursor: pointer;
-  padding: 1.25rem 3.25rem 1.25rem 0;
+  padding: 1.25rem 3.25rem 1.25rem 1rem;
 }
 .recording summary::-webkit-details-marker { display: none; }
 .recording summary::after {
@@ -497,7 +497,7 @@ p {
 .recording summary:hover h2 { color: var(--lagoon); }
 .recording summary:focus-visible { outline: 3px solid var(--lagoon); outline-offset: 2px; }
 .appearance-meta { color: var(--slate); font-size: .91rem; }
-.recording-body { max-width: 48rem; padding-bottom: 1.5rem; }
+.recording-body { max-width: 48rem; padding: 0 1rem 1.5rem; }
 .recording-body iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
 .recording-body audio { display: block; width: 100%; }
 .recording-links { margin: 1rem 0 0; }
