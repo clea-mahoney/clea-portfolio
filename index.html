@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=testimonials-20261125">
+  <link rel="stylesheet" href="styles.css?v=testimonial-carousel-1">
 </head>
 <body>
   <header class="site-header">
@@ -41,8 +41,15 @@
       <a class="section-link" href="speaking.html" target="_blank" rel="noopener"><h2>Speaking &amp; events <span aria-hidden="true">→</span></h2><p>Talks and conversations about customer education, AI workflows, and changing direction.</p></a>
     </nav>
     <section id="testimonials" aria-labelledby="testimonials-title">
-      <h2 id="testimonials-title">Testimonials</h2>
-      <div class="testimonials-list">
+      <div class="testimonial-header">
+        <h2 id="testimonials-title">Testimonials</h2>
+        <div class="testimonial-controls" hidden>
+          <button type="button" aria-label="Previous testimonial" aria-controls="testimonial-quotes">←</button>
+          <span role="status" aria-live="polite" aria-atomic="true"></span>
+          <button type="button" aria-label="Next testimonial" aria-controls="testimonial-quotes">→</button>
+        </div>
+      </div>
+      <div class="testimonials-list" id="testimonial-quotes">
         <figure>
           <blockquote><p>“As a Rewst customer, I’ve found Clea’s content on Cluck U incredibly valuable. Her clear, practical, and educational resources made it easy to understand the platform and get started intuitively.”</p></blockquote>
           <figcaption><strong>Alexandre U.</strong> · Rewst customer<br><time datetime="2026-11-05">November 5, 2026</time></figcaption>
@@ -72,5 +79,46 @@
     </section>
   </main>
   <footer class="page-footer"><p><a href="./" target="_blank" rel="noopener">About</a> · <a href="work-samples.html" target="_blank" rel="noopener">Work</a> · <a href="speaking.html" target="_blank" rel="noopener">Speaking &amp; events</a> · <a href="consulting.html" target="_blank" rel="noopener">Consulting</a> · <a href="resume.html" target="_blank" rel="noopener">Resume</a></p>&copy; 2026 Clea Mahoney. Built with GitHub Pages.</footer>
+  <script>
+    (() => {
+      const section = document.querySelector('#testimonials');
+      const controls = section.querySelector('.testimonial-controls');
+      const [previous, next] = controls.querySelectorAll('button');
+      const position = controls.querySelector('[role="status"]');
+      const track = section.querySelector('.testimonials-list');
+      const quotes = Array.from(track.querySelectorAll('figure'));
+      let current = 0;
+      let startTouch;
+
+      function show(index) {
+        current = (index + quotes.length) % quotes.length;
+        quotes.forEach((quote, i) => { quote.hidden = i !== current; });
+        position.textContent = (current + 1) + ' of ' + quotes.length;
+      }
+
+      previous.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      controls.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        show(current + (event.key === 'ArrowLeft' ? -1 : 1));
+      });
+      track.addEventListener('touchstart', event => {
+        startTouch = event.touches.length === 1 ? event.touches[0] : null;
+      }, { passive: true });
+      track.addEventListener('touchcancel', () => { startTouch = null; });
+      track.addEventListener('touchend', event => {
+        if (!startTouch) return;
+        const end = event.changedTouches[0];
+        const dx = end.clientX - startTouch.clientX;
+        const dy = end.clientY - startTouch.clientY;
+        startTouch = null;
+        if (Math.abs(dx) > 48 && Math.abs(dx) > 1.5 * Math.abs(dy)) show(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      show(0);
+      controls.hidden = false;
+    })();
+  </script>
 </body>
 </html>
