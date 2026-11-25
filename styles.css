@@ -273,6 +273,31 @@ p {
   font-size: 0.94rem;
 }
 
+.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  gap: 2rem clamp(2rem, 5vw, 4rem);
+}
+
+.testimonials-list figure {
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.testimonials-list blockquote {
+  margin: 0 0 .75rem;
+}
+
+.testimonials-list blockquote p {
+  margin: 0;
+}
+
+.testimonials-list figcaption {
+  color: var(--slate);
+  font-size: .9rem;
+}
+
 #contact {
   padding: clamp(1.5rem, 4vw, 2.6rem);
   background: var(--surface);
